@@ -122,14 +122,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                     SizedBox(height: size.height * 0.015),
-                    socialIcons(
-                      size,
-                      Icons.facebook,
-                      "Continue with Facebook",
-                      Colors.blue,
-                      30,
+                    InkWell(
+                      borderRadius: BorderRadius.circular(12),
+                      onTap: () {},
+                      child: socialIcons(
+                        size,
+                        Icons.facebook,
+                        "Continue with Facebook",
+                        Colors.blue,
+                        30,
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.02,
                     ),
                     InkWell(
+                      borderRadius: BorderRadius.circular(12),
                       onTap: () async => await signIn(),
                       child: socialIcons(
                         size,
@@ -139,19 +147,33 @@ class _LoginScreenState extends State<LoginScreen> {
                         27,
                       ),
                     ),
-                    socialIcons(
-                      size,
-                      Icons.apple,
-                      "Continue with Apple",
-                      Colors.black,
-                      30,
+                    SizedBox(
+                      height: size.height * 0.02,
                     ),
-                    socialIcons(
-                      size,
-                      Icons.email_outlined,
-                      "Continue with email",
-                      Colors.black,
-                      30,
+                    InkWell(
+                      borderRadius: BorderRadius.circular(12),
+                      onTap: () {},
+                      child: socialIcons(
+                        size,
+                        Icons.apple,
+                        "Continue with Apple",
+                        Colors.black,
+                        30,
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.02,
+                    ),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(12),
+                      onTap: () {},
+                      child: socialIcons(
+                        size,
+                        Icons.email_outlined,
+                        "Continue with email",
+                        Colors.black,
+                        30,
+                      ),
                     ),
                     const SizedBox(height: 10),
                     const Center(
@@ -173,35 +195,32 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Padding socialIcons(Size size, icon, name, color, double iconSize) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
-      child: Container(
-        width: size.width,
-        padding: const EdgeInsets.symmetric(vertical: 11),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(),
-        ),
-        child: Row(
-          children: [
-            SizedBox(width: size.width * 0.05),
-            Icon(
-              icon,
-              color: color,
-              size: iconSize,
+  Container socialIcons(Size size, icon, name, color, double iconSize) {
+    return Container(
+      width: size.width,
+      padding: const EdgeInsets.symmetric(vertical: 11),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(),
+      ),
+      child: Row(
+        children: [
+          SizedBox(width: size.width * 0.05),
+          Icon(
+            icon,
+            color: color,
+            size: iconSize,
+          ),
+          SizedBox(width: size.width * 0.15),
+          Text(
+            name,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
             ),
-            SizedBox(width: size.width * 0.15),
-            Text(
-              name,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(width: 10),
-          ],
-        ),
+          ),
+          const SizedBox(width: 10),
+        ],
       ),
     );
   }
