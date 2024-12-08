@@ -2,7 +2,10 @@ import 'package:airbnb_app/screens/explore_screen.dart';
 import 'package:airbnb_app/screens/login_screen.dart';
 import 'package:airbnb_app/screens/messages_screen.dart';
 import 'package:airbnb_app/screens/navbar.dart';
+import 'package:airbnb_app/screens/place_detail_screen.dart';
+import 'package:airbnb_app/screens/trip_screen.dart';
 import 'package:airbnb_app/screens/wishlists_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,7 +35,7 @@ class RoutesConfig {
           ),
           GoRoute(
             path: '/trip',
-            builder: (context, state) => const WishlistsScreen(),
+            builder: (context, state) => const TripScreen(),
           ),
           GoRoute(
             path: '/message',
@@ -43,6 +46,13 @@ class RoutesConfig {
             builder: (context, state) => const ProfileScreen(),
           ),
         ],
+      ),
+      GoRoute(
+        path: '/detail',
+        builder: (context, state) {
+          final place = state.extra as QueryDocumentSnapshot;
+          return PlaceDetailScreen(place: place);
+        },
       ),
     ],
   );

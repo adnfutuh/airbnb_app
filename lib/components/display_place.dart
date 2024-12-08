@@ -1,6 +1,7 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../provider/favorite_provider.dart';
 
@@ -34,7 +35,9 @@ class _DisplayPlaceState extends State<DisplayPlace> {
                   horizontal: 20,
                 ),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    context.go('/detail', extra: place);
+                  },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

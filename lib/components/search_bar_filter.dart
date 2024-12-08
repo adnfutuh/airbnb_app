@@ -71,17 +71,10 @@ class SearchBarFilter extends StatelessWidget {
             onTap: () {},
             child: Container(
               padding: const EdgeInsets.all(12),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 5,
-                    color: Colors.black26,
-                    offset: Offset(0, 3),
-                  )
-                ],
-              ),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.grey)),
               child: const Icon(
                 Icons.tune,
                 size: 30,
