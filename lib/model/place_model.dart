@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<void> savePlacesToFirebase() async {
   final CollectionReference ref =
-      FirebaseFirestore.instance.collection("myAppCpollection");
+      FirebaseFirestore.instance.collection("myPlace");
   for (final Place place in listOfPlace) {
     final String id =
         DateTime.now().toIso8601String() + Random().nextInt(1000).toString();
@@ -73,6 +73,29 @@ class Place {
 final List<Place> listOfPlace = [
   Place(
     isActive: true,
+    title: "Connect with your heart to this magical place",
+    image: "https://www.grandhotelnepal.com/images/slideshow/3arzB-grand4.jpg",
+    rating: 4.90,
+    review: 233,
+    bedAndBathroom: "1 bed . Shared bathroom",
+    date: "Nov 22-26",
+    price: 40,
+    address: "Jakarta, Indonesia",
+    vendor: "Adnan",
+    vendorProfession: "Retired",
+    yearOfHostin: 11,
+    vendorProfile:
+        "https://plus.unsplash.com/premium_photo-1727894728677-b4d6f7f172af?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    latitude: -6.200000,
+    longitude: 106.816666,
+    imageUrls: [
+      "https://www.grandhotelnepal.com/images/slideshow/3arzB-grand4.jpg",
+      "https://media.timeout.com/images/105162711/image.jpg",
+      "https://www.momondo.in/himg/b1/a8/e3/revato-1172876-6930557-765128.jpg",
+    ],
+  ),
+  Place(
+    isActive: true,
     title: "Nice small bedroom in a nice small house",
     image:
         "https://www.momondo.in/himg/b1/a8/e3/revato-1172876-6930557-765128.jpg",
@@ -92,8 +115,6 @@ final List<Place> listOfPlace = [
     imageUrls: [
       "https://www.momondo.in/himg/b1/a8/e3/revato-1172876-6930557-765128.jpg",
       "https://media.timeout.com/images/105162711/image.jpg",
-      "https://www.telegraph.co.uk/content/dam/Travel/hotels/2023/september/one-and-only-cape-town-product-image.jpg",
-      "https://www.theindiahotel.com/extra-images/banner-01.jpg",
     ],
   ),
   Place(
@@ -115,7 +136,6 @@ final List<Place> listOfPlace = [
     latitude: -33.922,
     longitude: 18.4231,
     imageUrls: [
-      "https://www.telegraph.co.uk/content/dam/Travel/hotels/2023/september/one-and-only-cape-town-product-image.jpg",
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/de/f7/c3/standard-room.jpg?w=1200&h=-1&s=1",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuMkI1MoQDzLBF-prjIp6kyXpccVol16bsew&s"
     ],
@@ -138,7 +158,6 @@ final List<Place> listOfPlace = [
     latitude: 19.0760,
     longitude: 72.8777,
     imageUrls: [
-      "https://www.theindiahotel.com/extra-images/banner-01.jpg",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgCXf3HATaGRx4_GtvzW8FVnYfXKRQMuRzOg&s",
       "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/de/f7/c3/standard-room.jpg?w=1200&h=-1&s=1",
       "https://radissonhotels.iceportal.com/image/radisson-hotel-kathmandu/exterior/16256-114182-f75152296_3xl.jpg",

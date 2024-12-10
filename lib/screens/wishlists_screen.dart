@@ -32,7 +32,7 @@ class WishlistsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 35),
                 const Text(
-                  "WishlistsScreen",
+                  "Wishlists",
                   style: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
@@ -60,7 +60,7 @@ class WishlistsScreen extends StatelessWidget {
                             String favorite = favoriteItems[index];
                             return FutureBuilder(
                               future: FirebaseFirestore.instance
-                                  .collection("myAppCpollection")
+                                  .collection("myPlace")
                                   .doc(favorite)
                                   .get(),
                               builder: (context, snapShot) {
@@ -76,10 +76,7 @@ class WishlistsScreen extends StatelessWidget {
                                     child: Text("Error loading favorites"),
                                   );
                                 }
-                                var favoriteItem = snapShot.data!;
-                                bool isFavorite =
-                                    provider.isExist(snapShot.data!);
-
+                                var favoriteItems = snapShot.data!;
                                 return Stack(
                                   children: [
                                     Container(
@@ -88,25 +85,17 @@ class WishlistsScreen extends StatelessWidget {
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
                                           image: NetworkImage(
-                                            favoriteItem['image'],
+                                            favoriteItems['image'],
                                           ),
                                         ),
                                       ),
                                     ),
-                                    Positioned(
+                                    const Positioned(
                                       top: 8,
                                       right: 8,
-                                      child: InkWell(
-                                        onTap: () {
-                                          provider.toggleFavorite(favoriteItem);
-                                        },
-                                        child: Icon(
-                                          Icons.favorite,
-                                          color: isFavorite
-                                              ? Colors.red
-                                              : Colors.black54,
-                                          size: 30,
-                                        ),
+                                      child: Icon(
+                                        Icons.favorite,
+                                        color: Colors.red,
                                       ),
                                     ),
                                     Positioned(
@@ -117,7 +106,7 @@ class WishlistsScreen extends StatelessWidget {
                                         color: Colors.black.withOpacity(0.6),
                                         padding: const EdgeInsets.all(4),
                                         child: Text(
-                                          favoriteItem['title'],
+                                          favoriteItems['title'],
                                           style: const TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
@@ -125,7 +114,7 @@ class WishlistsScreen extends StatelessWidget {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
-                                    ),
+                                    )
                                   ],
                                 );
                               },

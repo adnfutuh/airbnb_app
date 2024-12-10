@@ -79,33 +79,25 @@ class TripScreen extends StatelessWidget {
                 thickness: 2,
               ),
             ),
-            const Row(
-              children: [
-                Text(
-                  'Can\'t find your reservation here? ',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                  ),
+            RichText(
+              text: const TextSpan(
+                text: 'Can\'t find your reservation here? ',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
                 ),
-                Text(
-                  'Visit the ',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    decoration: TextDecoration.underline,
+                children: [
+                  TextSpan(
+                    text: " Visit the Help Center ",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const Text(
-              'Help Center',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-                decoration: TextDecoration.underline,
+                ],
               ),
             ),
           ],
